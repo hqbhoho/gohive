@@ -37,7 +37,7 @@ func (d drv) Open(dsn string) (driver.Conn, error) {
 		if err != nil {
 			return nil, fmt.Errorf("create SasalTranposrt failed: %v", err)
 		}
-		bgTransport.SetMaxLength(100000000)
+		bgTransport.SetMaxLength(1000000000000)
 		transport = bgTransport
 	} else {
 		return nil, fmt.Errorf("unrecognized auth mechanism: %s", cfg.Auth)
