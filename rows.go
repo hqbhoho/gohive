@@ -195,7 +195,8 @@ func (r *rowSet) batchFetch() error {
 	fetchReq := hiveserver2.NewTFetchResultsReq()
 	fetchReq.OperationHandle = r.operation
 	fetchReq.Orientation = hiveserver2.TFetchOrientation_FETCH_NEXT
-	fetchReq.MaxRows = r.options.BatchSize
+	fetchReq.MaxRows = 1000
+	fmt.Println(r.options.BatchSize)
 
 	resp, err := r.thrift.FetchResults(r.ctx, fetchReq)
 	if err != nil {
