@@ -67,6 +67,7 @@ func (d drv) Open(dsn string) (driver.Conn, error) {
 	}
 
 	options := hiveOptions{PollIntervalSeconds: 5, BatchSize: 1000}
+	fmt.Println(options)
 	conn := &hiveConnection{
 		thrift:  client,
 		session: session.SessionHandle,
